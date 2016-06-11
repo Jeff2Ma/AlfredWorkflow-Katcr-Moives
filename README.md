@@ -20,5 +20,9 @@
 
 ## 其它
 
+API：[https://kat.cr/json.php?q=category:movies](https://kat.cr/json.php?q=category:movies)
+
+目前的问题：有时候会因为你懂的网络原因抓取失败。
+
 Powered by JeffMa at [DeveWork.com](http://devework.com/)， feel free to use :)
 
