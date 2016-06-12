@@ -12,7 +12,7 @@
 
 ## 效果预览
 
-![效果截图](screenshot.png) 
+![效果截图](screen.png) 
 
 ## 下载地址
  
@@ -20,9 +20,9 @@
 
 ## 其它
 
-API：[https://kat.cr/json.php?q=category:movies](https://kat.cr/json.php?q=category:movies)
+API来源：[https://kat.cr/json.php?q=category:movies](https://kat.cr/json.php?q=category:movies)
 
-目前的问题：有时候会因为你懂的网络原因抓取失败。
+小问题：有时候会因为你懂的网络原因抓取失败。
 
 Powered by JeffMa at [DeveWork.com](http://devework.com/)， feel free to use :)
 

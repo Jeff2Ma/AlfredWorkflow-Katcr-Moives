@@ -5,6 +5,7 @@
 # url: http://devework.com/
 
 import json
+import urllib
 import urllib2
 import sys
 import datetime
@@ -14,6 +15,7 @@ from dateutil import parser
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
+
 
 # xxx 之前的时间转换
 def timebefore(d):
@@ -41,13 +43,14 @@ def timebefore(d):
             break
     return unicode(count) + unit + u"前"
 
+
 # 转换容量单位,size 为B 基本单位
 def convertSize(size):
     if (size == 0):
         return '0B'
-    size_name = ("KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB")
-    i = int(math.floor(math.log(size, 1024*1024)))
-    p = math.pow(1024*1024, i)
+    size_name = ("B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB")
+    i = int(math.floor(math.log(size, 1024)))
+    p = math.pow(1024, i)
     s = round(size / p, 2)
     return '%s %s' % (s, size_name[i])
 
@@ -69,7 +72,10 @@ def get_film_info():
     items = []
     target_url = 'https://kat.cr'
     target_detail_url = 'https://kat.cr/json.php?q=category:movies'
-    content = urllib2.urlopen(target_detail_url)
+    user_agent = 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.1.6) Gecko/20091201 Firefox/3.5.6'
+    headers = {'User-Agent': user_agent}
+    req = urllib2.Request(target_detail_url, None, headers)
+    content = urllib2.urlopen(req)
     json_content = json.load(content)
     target_content = json_content['list'][0]
 
@@ -82,7 +88,7 @@ def get_film_info():
             item_pubDate = formate_time_string(pubDate)
             size = item['size']
             item_size = convertSize(size)
-            item_subtitile = '发布时间: '+item_pubDate+' ,资源大小: '+item_size
+            item_subtitile = '发布时间: ' + item_pubDate + ' ,资源大小: ' + item_size
 
             json_item = dict(title=item_title, subtitle=item_subtitile, arg=item_link, icon='icon.png')
             items.append(json_item)
@@ -90,6 +96,7 @@ def get_film_info():
         count = count + 1
     # print items
     return generate_xml(items)
+
 
 # 转换json 中的时间段字符串为可用的时间格式
 def formate_time_string(str):
@@ -99,5 +106,6 @@ def formate_time_string(str):
     time_str = formate_date.strftime("%Y-%m-%d %H:%M:%S")
     time_rel = datetime.datetime.strptime(time_str, "%Y-%m-%d %H:%M:%S")  # type:datetime
     return timebefore(time_rel)
+
 
 print get_film_info()
