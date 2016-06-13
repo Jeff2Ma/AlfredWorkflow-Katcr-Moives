@@ -18,6 +18,12 @@
  
 [点击下载](https://github.com/Jeff2Ma/AlfredWorkflow-Katcr-Moives/blob/master/KAT-Movies.alfredworkflow?raw=true)
 
+## TODO
+
+- 增加Alt 按钮下复制下载链接的功能
+
+- item 的icon 获取为资源封面海报
+
 ## 其它
 
 API来源：[https://kat.cr/json.php?q=category:movies](https://kat.cr/json.php?q=category:movies)
