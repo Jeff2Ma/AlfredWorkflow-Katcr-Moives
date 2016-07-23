@@ -4,8 +4,7 @@
  
  ****
  
- 
-（7月2日更新，推荐如下整合版：[一个快速获取SubHD、Kat.cr、电影天堂的资源信息列表的Alfred Workflow](https://github.com/Jeff2Ma/AlfredWorkflow-DYHub) ） 
+（提醒：**本rep 不再更新**，推荐如下整合版，整合版将保持长期更新：[一个快速获取SubHD、Kat.cr、电影天堂的资源信息列表的Alfred Workflow](https://github.com/Jeff2Ma/AlfredWorkflow-DYHub) ） 
  
 ## 基本说明
 
